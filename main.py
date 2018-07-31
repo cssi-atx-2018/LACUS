@@ -16,30 +16,36 @@ def states(z):
     if z == 'tx':
         return 10.98
 
+class RegionPage(webapp2.RequestHandler):
+    def get(self):
+        region_template = template_env.get_template('templates/region.html')
+        self.response.write(region_template.render())
+
+    def post(self):
+         region_template = template_env.get_template('templates/region.html')
+         self.response.write(region_template.render())
+
 class AppliancePage(webapp2.RequestHandler):
     def get(self):
         beg_template = template_env.get_template('appliances.html')
         self.response.write(beg_template.render())
 
-
-
-    def post(self):
-        self.response.headers['Content-Type'] = 'text/html'
-        ac=self.request.get('ac-type')
-        ac = int(ac)
-        price = self.request.get('state')
-        price = str(price)
-        seer = seers(ac)
-        size = sizes(ac)
-        money = states(price)
-        my_dict = {'seer': seer, 'sizes': size, 'money': money}
-        end_template = template_env.get_template('app-results.html')
-        self.response.write(end_template.render(my_dict))
-
+        def post(self):
+            self.response.headers['Content-Type'] = 'text/html'
+            ac=self.request.get('ac-type')
+            ac = int(ac)
+            price = self.request.get('state')
+            price = str(price)
+            seer = seers(ac)
+            size = sizes(ac)
+            money = states(price)
+            my_dict = {'seer': seer, 'sizes': size, 'money': money}
+            end_template = template_env.get_template('app-results.html')
+            self.response.write(end_template.render(my_dict))
 
 
 
 app = webapp2.WSGIApplication([
     ('/appliances', AppliancePage),
+    ('/region', RegionPage),
 ], debug=True)
-
