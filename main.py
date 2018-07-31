@@ -4,11 +4,23 @@ import jinja2
 template_loader = jinja2.FileSystemLoader(searchpath="./")
 template_env=jinja2.Environment(loader=template_loader)
 
-ac_dict = {'4TTV0024A': [22, 24000], '4TTV0036A': [22, 36000], '4TTV0048A': [22, 48000], '4TTV0060A': [22, 60000]}
-states_dict = {'tx': 10.98}
+def seers(x):
+    arr = [22]
+    return arr[x]
 
-def avgthese(one, two):
-    return (one+two)/2
+def sizes(y):
+    lis = [24000]
+    return lis[y]
+
+def states(z):
+    if z == 'tx':
+        return 10.98
+
+def avgthese(a, b):
+    one = int(a)
+    two = int(b)
+    sum = one+two
+    return sum/2
 
 class HomePage(webapp2.RequestHandler):
     def get(self):
@@ -29,17 +41,17 @@ class RegionPage(webapp2.RequestHandler):
         stavg = 69.9
         if avg < stavg:
             diff = stavg - avg
-            diffst = 'Your household setpoint is ' + diff + ' degrees lower than your state\'s average.'
+            diffst = 'Your household setpoint is {diff} degrees lower than your state\'s average.'.format(diff=diff)
         elif avg > stavg:
             diff = avg - stavg
-            diffst = 'Your household setpoint is ' + diff + ' degrees higher than your state\'s average.'
+            diffst = 'Your household setpoint is {diff} degrees higher than your state\'s average.'.format(diff=diff)
         else:
             diff = 0
             diffst = 'Your household setpoint is equal to your state\'s average.'
         result_dict = {
-                    'user': 'Your average temperature is ' + avg + '.',
-                    'region': 'Your region\'s average temperature is ' + regavg + '.',
-                    'state': 'Your state\'s average temperature is ' + stavg + '.',
+                    'user': 'Your average temperature is {user}.'.format(user=avg),
+                    'region': 'Your region\'s average temperature is {regavg}.'.format(regavg=regavg),
+                    'state': 'Your state\'s average temperature is {stavg}.'.format(stavg=stavg),
                     'diff': diffst}
         region_template = template_env.get_template('templates/region.html')
         self.response.write(region_template.render(result_dict))
@@ -51,15 +63,14 @@ class AppliancePage(webapp2.RequestHandler):
 
     def post(self):
         self.response.headers['Content-Type'] = 'text/html'
-        ac=str(self.request.get('ac-type'))
-        ac2=str(self.request.get('ac-type-2'))
-        state = str(self.request.get('state'))
-        seer = ac_dict[ac][0]
-        size = ac_dict[ac][1]
-        seer2 = ac_dict[ac2][0]
-        size2 = ac_dict[ac2][1]
-        money = states_dict[state]
-        my_dict = {'seer': seer, 'size': size, 'money': money, 'seer2': seer2, 'size2': size2}
+        ac=self.request.get('ac-type')
+        ac = int(ac)
+        price = self.request.get('state')
+        price = str(price)
+        seer = seers(ac)
+        size = sizes(ac)
+        money = states(price)
+        my_dict = {'seer': seer, 'sizes': size, 'money': money}
         end_template = template_env.get_template('templates/app-results.html')
         self.response.write(end_template.render(my_dict))
 
