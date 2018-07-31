@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Appliance Comparisons</title>
+  </head>
+  <body>
+      <svg></svg>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+      <select name="ac-type">
+          <option value="0">Trane</option>
+          <option value="1">Mitsubishi</option>
+      </select>
+      <select name="state">
+          <option value="tx">Texas</option>
+      </select>
+      <input type="submit" value = "Go!">
+      <canvas id="energyChart"></canvas>
+      <canvas id="priceChart"></canvas>
+      <script>
+      var ctx = document.getElementById('energyChart').getContext('2d');
+      var ptx = document.getElementById('priceChart').getContext('2d');
+      var cons = Math.round(1.5*({{sizes}}/{{seer}}));
+var energy_chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+    //
+    // The data for our dataset
+    data: {
+        labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+        datasets: [{
+            label: "Energy Use",
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 1*cons, 2*cons, 3*cons, 4*cons,5*cons, 6*cons, 7*cons, 8*cons, 9*cons, 10*cons, 11*cons, 12*cons],
+        }]
+    },
+
+    // Configuration options go here
+    options: {scales: {
+        yAxes: [
+            {
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Amount of Energy Used (kW)'
+                }
+            }
+        ],
+        xAxes: [
+            {
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Number of Months'
+                }
+            }
+        ]
+    }}
+});
+var price_chart = new Chart(ptx, {
+    // The type of chart we want to create
+    type: 'line',
+    //
+    // The data for our dataset
+    data: {
+        labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+        datasets: [{
+            label: "Cost",
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 1*cons, 2*cons, 3*cons, 4*cons,5*cons, 6*cons, 7*cons, 8*cons, 9*cons, 10*cons, 11*cons, 12*cons],
+        }]
+    },
+
+    // Configuration options go here
+    options: {scales: {
+        yAxes: [
+            {
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Amount of Energy Used (kW)'
+                }
+            }
+        ],
+        xAxes: [
+            {
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Number of Months'
+                }
+            }
+        ]
+    }}
+});</script>
+  </body>
+</html>
