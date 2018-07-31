@@ -18,7 +18,7 @@ def states(z):
 
 class AppliancePage(webapp2.RequestHandler):
     def get(self):
-        beg_template = template_env.get_template('appliances.html')
+        beg_template = template_env.get_template('templates/appliances.html')
         self.response.write(beg_template.render())
 
 
@@ -33,7 +33,7 @@ class AppliancePage(webapp2.RequestHandler):
         size = sizes(ac)
         money = states(price)
         my_dict = {'seer': seer, 'sizes': size, 'money': money}
-        end_template = template_env.get_template('app-results.html')
+        end_template = template_env.get_template('templates/app-results.html')
         self.response.write(end_template.render(my_dict))
 
 
@@ -42,4 +42,3 @@ class AppliancePage(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/appliances', AppliancePage),
 ], debug=True)
-
