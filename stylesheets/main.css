@@ -1,0 +1,12 @@
+@font-face{
+  font-family: Sifonn;
+  src: url('fonts/sifonn_basic_outline.otf') format('opentype');
+}
+
+body{
+  
+}
+
+h1{
+  font-family: 'Playfair Display SC', serif;
+}
