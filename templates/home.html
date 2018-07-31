@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About Us</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Compare Yourself</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Compare Products</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Find Solutions</a>
+
+  </div>
+</div>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Menu</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" href="https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwj0iJ2SssjcAhVqdt8KHd9GBpMQPAgD">Google</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="https://www.homedepot.com/b/Heating-Venting-Cooling-Air-Conditioners/N-5yc1vZc4me">Home Depot</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="https://www3.epa.gov/carbon-footprint-calculator/">Energy Emissions Calculator</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="https://www.cnet.com/how-to/rules-for-paying-less-on-ac-this-summer/">Helpful Resources</a>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-content" style="max-width:1200px">
+    <img class="mySlides" src="https://www.w3schools.com/w3css/img_snow_wide.jpg" style="width:100%">
+    <img class="mySlides" src="OCEANVIEW.jpg" style="width:50%">
+    <img class="mySlides" src="http://i.imgflip.com/2f0xsi.jpg" style="width:50%">
+
+<button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+<button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
+</div>
+
+    <!-- <div class="w3-row-padding w3-section">
+      <div class="w3-col s4">
+        <img class="demo w3-opacity"
+        src="img_nature_wide.jpg" onclick="currentDiv(1)">
+      </div>
+      <div class="w3-col s4">
+        <img class="demo w3-opacity"
+        src="img_snow_wide.jpg" onclick="currentDiv(2)">
+      </div>
+      <div class="w3-col s4">
+        <img class="demo w3-opacity"
+        src="img_mountains_wide.jpg" onclick="currentDiv(3)">
+      </div>
+    </div>
+  </div> -->
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Our Purpose</h1>
+      <p>In today’s society, the sheer number of appliances to be had in a single household is overwhelming. At times, it’s easy to forget to look for the cheapest and most energy-saving devices, and even if one remembers, it’s an arduous and time-consuming process.
+        On top of that, humanity’s energy consumption can be extreme and leave heavy impacts on the planet. The average household consumes about 11 thousand kilowatt-hours of energy annually. That translates to nearly up to $1500 spent on electricity alone, and it takes 10 acres of US forests to sequester that much carbon from the atmosphere. And this isn’t even accounting for the consumption of an average commercial cooling system.
+        We plan on resolving this problem of lack of information about energy usage for household appliances -- specifically, air conditioning and central cooling systems --  by creating a web application that allows users to check consumption of devices in order to save time, money, and energy
+        .</p>
+    </div>
+    <div class="w3-third w3-container">
+      <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p>
+    </div>
+  </div>
+
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Heading</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
+        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div class="w3-third w3-container">
+      <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
+      <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a class="w3-button w3-black" href="#">1</a>
+      <a class="w3-button w3-hover-black" href="#">2</a>
+      <a class="w3-button w3-hover-black" href="#">3</a>
+
+      <a class="w3-button w3-hover-black" href="#">»</a>
+    </div>
+  </div>
+
+  <footer id="myFooter">
+    <div class="w3-container w3-theme-l5 w3-padding-32">
+      <h4>Footer</h4>
+    </div>
+
+    <div class="w3-container w3-theme-l1">
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    </div>
+  </footer>
+
+<!-- END MAIN -->
+</div>
+
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+    showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    if (n > x.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = x.length} ;
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    x[slideIndex-1].style.display = "block";
+}
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+    if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+        overlayBg.style.display = "none";
+    } else {
+        mySidebar.style.display = 'block';
+        overlayBg.style.display = "block";
+    }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+    overlayBg.style.display = "none";
+}
+</script>
+
+</body>
+</html>
