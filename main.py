@@ -1,20 +1,15 @@
 import webapp2
 import jinja2
+import air_con
 
 template_loader = jinja2.FileSystemLoader(searchpath="./")
 template_env=jinja2.Environment(loader=template_loader)
 
-def seers(x):
-    arr = [22]
-    return arr[x]
-
-def sizes(y):
-    lis = [24000]
-    return lis[y]
-
-def states(z):
-    if z == 'tx':
-        return 10.98
+"""ac_dict = {"Trane XV20i TruComfort Variable Speed, Model 4TTV0024A": [22, 24000],
+    "Trane XV20i TruComfort Variable Speed, Model 4TTV0036A": [22, 36000],
+    "Trane XV20i TruComfort Variable Speed, Model 4TTV0048A": [22, 48000],
+    "Trane XV20i TruComfort Variable Speed, Model 4TTV0060A": [22, 60000]}
+states_dict = {'Texas': 10.98}"""
 
 def avgthese(a, b):
     one = int(a)
@@ -58,19 +53,20 @@ class RegionPage(webapp2.RequestHandler):
 
 class AppliancePage(webapp2.RequestHandler):
     def get(self):
-        beg_template = template_env.get_template('templates/appliances.html')
+        beg_template = template_env.get_template('templates/app-results.html')
         self.response.write(beg_template.render())
 
     def post(self):
         self.response.headers['Content-Type'] = 'text/html'
-        ac=self.request.get('ac-type')
-        ac = int(ac)
-        price = self.request.get('state')
-        price = str(price)
-        seer = seers(ac)
-        size = sizes(ac)
-        money = states(price)
-        my_dict = {'seer': seer, 'sizes': size, 'money': money}
+        ac=str(self.request.get('ac-type'))
+        ac2=str(self.request.get('ac-type-2'))
+        state = str(self.request.get('state'))
+        seer = air_con.ac_dict[ac][0]
+        size = air_con.ac_dict[ac][1]
+        seer2 = air_con.ac_dict[ac2][0]
+        size2 = air_con.ac_dict[ac2][1]
+        money = air_con.states_dict[state]
+        my_dict = {'name1': ac, 'name2': ac2, 'state': state, 'seer': seer, 'size': size, 'money': money, 'seer2': seer2, 'size2': size2}
         end_template = template_env.get_template('templates/app-results.html')
         self.response.write(end_template.render(my_dict))
 
