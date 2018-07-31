@@ -7,6 +7,15 @@ template_env=jinja2.Environment(loader=template_loader)
 ac_dict = {'4TTV0024A': [22, 24000], '4TTV0036A': [22, 36000], '4TTV0048A': [22, 48000], '4TTV0060A': [22, 60000]}
 states_dict = {'tx': 10.98}
 
+class RegionPage(webapp2.RequestHandler):
+    def get(self):
+        region_template = template_env.get_template('templates/region.html')
+        self.response.write(region_template.render())
+
+    def post(self):
+         region_template = template_env.get_template('templates/region.html')
+         self.response.write(region_template.render())
+
 class AppliancePage(webapp2.RequestHandler):
     def get(self):
         beg_template = template_env.get_template('templates/appliances.html')
@@ -26,9 +35,7 @@ class AppliancePage(webapp2.RequestHandler):
         end_template = template_env.get_template('templates/app-results.html')
         self.response.write(end_template.render(my_dict))
 
-
-
-
 app = webapp2.WSGIApplication([
     ('/appliances', AppliancePage),
+    ('/region', RegionPage),
 ], debug=True)
