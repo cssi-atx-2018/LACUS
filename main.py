@@ -16,14 +16,42 @@ def states(z):
     if z == 'tx':
         return 10.98
 
+def avgthese(one, two):
+    return (one+two)/2
+
+class HomePage(webapp2.RequestHandler):
+    def get(self):
+        home_temp = template_env.get_template('templates/home.html')
+        self.response.write(home_temp.render())
+
 class RegionPage(webapp2.RequestHandler):
     def get(self):
         region_template = template_env.get_template('templates/region.html')
         self.response.write(region_template.render())
 
     def post(self):
-         region_template = template_env.get_template('templates/region.html')
-         self.response.write(region_template.render())
+        self.response.headers['Content-Type'] = 'text/html'
+        min = self.request.get('mintemp')
+        max = self.request.get('maxtemp')
+        avg = avgthese(min, max)
+        regavg = 69.95
+        stavg = 69.9
+        if avg < stavg:
+            diff = stavg - avg
+            diffst = 'Your household setpoint is ' + diff + ' degrees lower than your state\'s average.'
+        elif avg > stavg:
+            diff = avg - stavg
+            diffst = 'Your household setpoint is ' + diff + ' degrees higher than your state\'s average.'
+        else:
+            diff = 0
+            diffst = 'Your household setpoint is equal to your state\'s average.'
+        result_dict = {
+                    'user': 'Your average temperature is ' + avg + '.',
+                    'region': 'Your region\'s average temperature is ' + regavg + '.',
+                    'state': 'Your state\'s average temperature is ' + stavg + '.',
+                    'diff': diffst}
+        region_template = template_env.get_template('templates/region.html')
+        self.response.write(region_template.render(result_dict))
 
 class AppliancePage(webapp2.RequestHandler):
     def get(self):
@@ -44,6 +72,7 @@ class AppliancePage(webapp2.RequestHandler):
         self.response.write(end_template.render(my_dict))
 
 app = webapp2.WSGIApplication([
-    ('/appliances', AppliancePage),
+    ('/', HomePage),
     ('/region', RegionPage),
+    ('/appliances', AppliancePage),
 ], debug=True)
