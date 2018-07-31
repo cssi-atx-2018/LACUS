@@ -2,91 +2,100 @@
 <html>
   <head>
     <title>Appliance Comparisons</title>
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
   </head>
   <body>
       <svg></svg>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-      <select name="ac-type">
-          <option value="0">Trane</option>
-          <option value="1">Mitsubishi</option>
-      </select>
-      <select name="state">
-          <option value="tx">Texas</option>
-      </select>
-      <input type="submit" value = "Go!">
       <canvas id="energyChart"></canvas>
       <canvas id="priceChart"></canvas>
+      <div id="energyDifference" style="font-family: 'Dosis'"></div>
+      <div id="priceDifference" style="font-family: 'Dosis'"></div>
       <script>
-      var ctx = document.getElementById('energyChart').getContext('2d');
-      var ptx = document.getElementById('priceChart').getContext('2d');
-      var cons = Math.round(1.5*({{sizes}}/{{seer}}));
-var energy_chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
-    //
-    // The data for our dataset
-    data: {
-        labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
-        datasets: [{
-            label: "Energy Use",
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 1*cons, 2*cons, 3*cons, 4*cons,5*cons, 6*cons, 7*cons, 8*cons, 9*cons, 10*cons, 11*cons, 12*cons],
-        }]
-    },
+      var enc = document.getElementById('energyChart').getContext('2d');
+      var prc = document.getElementById('priceChart').getContext('2d');
+      //Constant used to calculate energy for the first selection
+      var cons = Math.round(1.5*({{size}}/{{seer}}));
+      //Constant used to calculate energy for the second selection
+      var cons2 = Math.round(1.5*({{size2}}/{{seer2}}));
+      var energy_diff = Math.abs(cons-cons2);
+      var energy_chart = new Chart(enc, {
+          // Type of chart to be created
+          type: 'line',
+          // Data for the dataset
+          data: {
+              labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+              datasets: [{
+                  label: "Energy Use",
+                  borderColor: 'rgb(255, 99, 132)',
+                  data: [0, 1*cons, 2*cons, 3*cons, 4*cons,5*cons, 6*cons, 7*cons, 8*cons, 9*cons, 10*cons, 11*cons, 12*cons]
+              }, {
+                  label: "Energy Use 2",
+                  borderColor: 'rgb(255, 99, 132)',
+                  data: [0, 1*cons2, 2*cons2, 3*cons2, 4*cons2,5*cons2, 6*cons2, 7*cons2, 8*cons2, 9*cons2, 10*cons2, 11*cons2, 12*cons2]
+              }]
+          },
 
-    // Configuration options go here
-    options: {scales: {
-        yAxes: [
-            {
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Amount of Energy Used (kW)'
+          // Configuration options
+          options: {scales: {
+              yAxes: [
+                  {
+                      scaleLabel: {
+                          display: true,
+                          labelString: 'Amount of Energy Used (kW)'
+                      }
+                  }
+              ],
+              xAxes: [
+                  {
+                      scaleLabel: {
+                          display: true,
+                          labelString: 'Number of Months'
+                      }
+                  }
+              ]
+          }}
+      });
+      //Constant used to calculate price for the first selection
+      cons = Math.round(.015*({{money}}*{{size}}/{{seer}}));
+      //Constant used to calculate price for the second selection
+      cons2 = Math.round(.015*({{money}}*{{size2}}/{{seer2}}));
+      var price_chart = new Chart(prc, {
+        type: 'line',
+        data: {
+            labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+            datasets: [{
+                label: "Cost",
+                borderColor: 'rgb(255, 99, 132)',
+                data: [0, 1*cons, 2*cons, 3*cons, 4*cons,5*cons, 6*cons, 7*cons, 8*cons, 9*cons, 10*cons, 11*cons, 12*cons],
+            }, {
+                label: "Energy Use 2",
+                borderColor: 'rgb(255, 99, 132)',
+                data: [0, 1*cons2, 2*cons2, 3*cons2, 4*cons2,5*cons2, 6*cons2, 7*cons2, 8*cons2, 9*cons2, 10*cons2, 11*cons2, 12*cons2]
+            }]
+        },
+        options: {scales: {
+            yAxes: [
+                {
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Price'
+                    }
                 }
-            }
-        ],
-        xAxes: [
-            {
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Number of Months'
+            ],
+            xAxes: [
+                {
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Number of Months'
+                    }
                 }
-            }
-        ]
-    }}
-});
-var price_chart = new Chart(ptx, {
-    // The type of chart we want to create
-    type: 'line',
-    //
-    // The data for our dataset
-    data: {
-        labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
-        datasets: [{
-            label: "Cost",
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 1*cons, 2*cons, 3*cons, 4*cons,5*cons, 6*cons, 7*cons, 8*cons, 9*cons, 10*cons, 11*cons, 12*cons],
-        }]
-    },
-
-    // Configuration options go here
-    options: {scales: {
-        yAxes: [
-            {
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Amount of Energy Used (kW)'
-                }
-            }
-        ],
-        xAxes: [
-            {
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Number of Months'
-                }
-            }
-        ]
-    }}
-});</script>
+            ]
+        }}
+      });
+      var price_diff = Math.abs(cons-cons2);
+      document.getElementById("energyDifference").innerText = "The energy difference between the two options is " + energy_diff + " kilowatts.";
+      document.getElementById("priceDifference").innerText = "The price difference between the two options is $" + price_diff + ".";
+      </script>
   </body>
 </html>
