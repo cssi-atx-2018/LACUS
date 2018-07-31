@@ -1,7 +1,9 @@
 import webapp2
 import jinja2
+
 template_loader = jinja2.FileSystemLoader(searchpath="./")
 template_env=jinja2.Environment(loader=template_loader)
+
 def seers(x):
     arr = [22]
     return arr[x]
@@ -40,3 +42,4 @@ class AppliancePage(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/appliances', AppliancePage),
 ], debug=True)
+
