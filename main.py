@@ -10,8 +10,11 @@ ac_dict = {"Trane XV20i TruComfort Variable Speed, Model 4TTV0024A": [22, 24000]
     "Trane XV20i TruComfort Variable Speed, Model 4TTV0060A": [22, 60000]}
 states_dict = {'Texas': 10.98}
 
-def avgthese(one, two):
-    return (one+two)/2
+def avgthese(a, b):
+    one = int(a)
+    two = int(b)
+    sum = one+two
+    return sum/2
 
 class HomePage(webapp2.RequestHandler):
     def get(self):
@@ -32,17 +35,17 @@ class RegionPage(webapp2.RequestHandler):
         stavg = 69.9
         if avg < stavg:
             diff = stavg - avg
-            diffst = 'Your household setpoint is ' + diff + ' degrees lower than your state\'s average.'
+            diffst = 'Your household setpoint is {diff} degrees lower than your state\'s average.'.format(diff=diff)
         elif avg > stavg:
             diff = avg - stavg
-            diffst = 'Your household setpoint is ' + diff + ' degrees higher than your state\'s average.'
+            diffst = 'Your household setpoint is {diff} degrees higher than your state\'s average.'.format(diff=diff)
         else:
             diff = 0
             diffst = 'Your household setpoint is equal to your state\'s average.'
         result_dict = {
-                    'user': 'Your average temperature is ' + avg + '.',
-                    'region': 'Your region\'s average temperature is ' + regavg + '.',
-                    'state': 'Your state\'s average temperature is ' + stavg + '.',
+                    'user': 'Your average temperature is {user}.'.format(user=avg),
+                    'region': 'Your region\'s average temperature is {regavg}.'.format(regavg=regavg),
+                    'state': 'Your state\'s average temperature is {stavg}.'.format(stavg=stavg),
                     'diff': diffst}
         region_template = template_env.get_template('templates/region.html')
         self.response.write(region_template.render(result_dict))
