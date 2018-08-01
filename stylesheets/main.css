@@ -1,12 +1,38 @@
 @font-face{
-  font-family: Sifonn;
-  src: url('fonts/sifonn_basic_outline.otf') format('opentype');
+  font-family: sifonn_basic;
+  src: url('fonts/sifonn_basic.otf') format('opentype');
+}
+
+@font-face{
+  font-family: BebasNeue_Regular;
+  src: url('fonts/BebasNeue_Regular.otf') format('opentype');
+}
+
+@font-face{
+  font-family: BebasNeue_Book;
+  src: url('fonts/BebasNeue_Book.otf') format('opentype');
 }
 
 body{
-  
+  font-family: BebasNeue_Book;
 }
 
 h1{
   font-family: 'Playfair Display SC', serif;
+}
+
+.w3-top{
+  font-family: sifonn_basic;
+}
+
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
+
+#myFooter{
+  text-align: center;
 }
