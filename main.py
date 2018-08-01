@@ -1,17 +1,22 @@
 import webapp2
 import jinja2
 import air_con
-import logging
 
 template_loader = jinja2.FileSystemLoader(searchpath="./")
 template_env=jinja2.Environment(loader=template_loader)
+
+"""ac_dict = {"Trane XV20i TruComfort Variable Speed, Model 4TTV0024A": [22, 24000],
+    "Trane XV20i TruComfort Variable Speed, Model 4TTV0036A": [22, 36000],
+    "Trane XV20i TruComfort Variable Speed, Model 4TTV0048A": [22, 48000],
+    "Trane XV20i TruComfort Variable Speed, Model 4TTV0060A": [22, 60000]}
+states_dict = {'Texas': 10.98}"""
 
 def avgthese(a, b):
     one = int(a)
     two = int(b)
     sum = one+two
     return sum/2
-        
+
 class HomePage(webapp2.RequestHandler):
     def get(self):
         home_temp = template_env.get_template('templates/home.html')
@@ -19,9 +24,9 @@ class HomePage(webapp2.RequestHandler):
 
 class AboutPage(webapp2.RequestHandler):
     def get(self):
-        about_temp = template_env.get_template('templates/about_temp.html')
-        self.response.write(about_temp.render())        
-      
+        about_temp = template_env.get_template('templates/about.html')
+        self.response.write(about_temp.render())
+
 class RegionPage(webapp2.RequestHandler):
     def get(self):
         region_template = template_env.get_template('templates/region.html')
@@ -68,7 +73,6 @@ class AppliancePage(webapp2.RequestHandler):
         ac=str(self.request.get('ac-type'))
         ac2=str(self.request.get('ac-type-2'))
         state = str(self.request.get('state'))
-        logging.info(ac)
         ac_arr=[]
         states_arr=[]
         for pair in sorted(air_con.ac_dict.items()):
@@ -87,6 +91,7 @@ class AppliancePage(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', HomePage),
+    ('/about', AboutPage),
     ('/region', RegionPage),
     ('/appliances', AppliancePage),
 ], debug=True)
