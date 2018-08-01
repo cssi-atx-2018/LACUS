@@ -48,19 +48,19 @@
           <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
           <h1 class="w3-text-blue">Enter your air conditioner, the air conditioner you'd like to compare to, and your state. We'll show you how much money or energy you could be saving (or losing!)</h1>
           <form method="post">
-              Your AC: <select name="ac-type">
+              <select name="ac-type">
                   {% for key in dict: %}
-                      <option value= {{ key }}>{{ key }}</option>
+                      <option value = "{{ key }}">{{ key }}</option>
                   {% endfor %}
               </select>
               <br>
-              Compare AC: <select name="ac-type-2">
+              <select name="ac-type-2">
                   {% for key in dict: %}
-                      <option value= {{ key }}>{{ key }}</option>
+                      <option value = "{{ key }}">{{ key }}</option>
                   {% endfor %}
               </select>
               <br>
-              State: <select name="state">
+              <select name="state">
                   {% for key in s_dict: %}
                       <option value = {{ key }}>{{ key }}</option>
                   {% endfor %}
