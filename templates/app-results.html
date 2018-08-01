@@ -49,19 +49,19 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
       <form method="post">
           <select name="ac-type">
-              <option value="Trane XV20i TruComfort Variable Speed, Model 4TTV0024A">Trane XV20i TruComfort™ Variable Speed, Model 4TTV0024A</option>
-              <option value="Trane XV20i TruComfort Variable Speed, Model 4TTV0036A">Trane XV20i TruComfort™ Variable Speed, Model 4TTV0036A</option>
-              <option value="Trane XV20i TruComfort Variable Speed, Model 4TTV0048A">Trane XV20i TruComfort™ Variable Speed, Model 4TTV0048A</option>
-              <option value="Trane XV20i TruComfort Variable Speed, Model 4TTV0060A">Trane XV20i TruComfort™ Variable Speed, Model 4TTV0060A</option>
+              {% for key in dict: %}
+                  <option value="{{ key }}">{{ key }}</option>
+              {% endfor %}
           </select>
           <select name="ac-type-2">
-              <option value="Trane XV20i TruComfort Variable Speed, Model 4TTV0024A">Trane XV20i TruComfort™ Variable Speed, Model 4TTV0024A</option>
-              <option value="Trane XV20i TruComfort Variable Speed, Model 4TTV0036A">Trane XV20i TruComfort™ Variable Speed, Model 4TTV0036A</option>
-              <option value="Trane XV20i TruComfort Variable Speed, Model 4TTV0048A">Trane XV20i TruComfort™ Variable Speed, Model 4TTV0048A</option>
-              <option value="Trane XV20i TruComfort Variable Speed, Model 4TTV0060A">Trane XV20i TruComfort™ Variable Speed, Model 4TTV0060A</option>
+              {% for key in dict: %}
+                  <option value="{{ key }}">{{ key }}</option>
+              {% endfor %}
           </select>
           <select name="state">
-              <option value="Texas">Texas</option>
+              {% for key in s_dict: %}
+                  <option value= {{ key }}>{{ key }}</option>
+              {% endfor %}
           </select>
           <input type="submit" value = "Go!">
       </form>
@@ -102,9 +102,9 @@
       var enc = document.getElementById('energyChart').getContext('2d');
       var prc = document.getElementById('priceChart').getContext('2d');
       //Constant used to calculate energy for the first selection
-      var cons = Math.round(1.5*({{size}}/{{seer}}));
+      var cons = Math.round(1.5*({{my_dict.size}}/{{my_dict.seer}}));
       //Constant used to calculate energy for the second selection
-      var cons2 = Math.round(1.5*({{size2}}/{{seer2}}));
+      var cons2 = Math.round(1.5*({{my_dict.size2}}/{{my_dict.seer2}}));
       console.log(cons)
       if (cons != null)
         bool = true;
@@ -112,72 +112,55 @@
       var energy_diff = Math.abs(cons-cons2);
       var energy_chart = new Chart(enc, {
           // Type of chart to be created
+          type: 'line',
+          // Data for the dataset
+          data: {
+              labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+              datasets: [{
+                  label: "Energy Use for {{my_dict.name1}}",
+                  borderColor: 'rgb(255, 99, 132)',
+                  data: [0, 1*cons, 2*cons, 3*cons, 4*cons,5*cons, 6*cons, 7*cons, 8*cons, 9*cons, 10*cons, 11*cons, 12*cons]
+              }, {
+                  label: "Energy Use for {{my_dict.name2}}",
+                  borderColor: 'rgb(16, 73, 165)',
+                  data: [0, 1*cons2, 2*cons2, 3*cons2, 4*cons2,5*cons2, 6*cons2, 7*cons2, 8*cons2, 9*cons2, 10*cons2, 11*cons2, 12*cons2]
+              }]
+          },
 
-        console.log("this script has run");
-        var bool = false;
-        var enc = document.getElementById('energyChart').getContext('2d');
-        var prc = document.getElementById('priceChart').getContext('2d');
-        //Constant used to calculate energy for the first selection
-        var cons = Math.round(1.5*({{size}}/{{seer}}));
-        //Constant used to calculate energy for the second selection
-        var cons2 = Math.round(1.5*({{size2}}/{{seer2}}));
-        console.log(cons)
-        if (cons != null)
-          bool = true;
-        if (bool) {
-        var energy_diff = Math.abs(cons-cons2);
-        var energy_chart = new Chart(enc, {
-            // Type of chart to be created
-            type: 'line',
-            // Data for the dataset
-            data: {
-                labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
-                datasets: [{
-                    label: "Energy Use for {{name1}}",
-                    borderColor: 'rgb(255, 99, 132)',
-                    data: [0, 1*cons, 2*cons, 3*cons, 4*cons,5*cons, 6*cons, 7*cons, 8*cons, 9*cons, 10*cons, 11*cons, 12*cons]
-                }, {
-                    label: "Energy Use for {{name2}}",
-                    borderColor: 'rgb(16, 73, 165)',
-                    data: [0, 1*cons2, 2*cons2, 3*cons2, 4*cons2,5*cons2, 6*cons2, 7*cons2, 8*cons2, 9*cons2, 10*cons2, 11*cons2, 12*cons2]
-                }]
-            },
-
-            // Configuration options
-            options: {scales: {
-                yAxes: [
-                    {
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Amount of Energy Used (kW)'
-                        }
-                    }
-                ],
-                xAxes: [
-                    {
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Number of Months'
-                        }
-                    }
-                ]
-            }}
-        });
-
+          // Configuration options
+          options: {scales: {
+              yAxes: [
+                  {
+                      scaleLabel: {
+                          display: true,
+                          labelString: 'Amount of Energy Used (kW)'
+                      }
+                  }
+              ],
+              xAxes: [
+                  {
+                      scaleLabel: {
+                          display: true,
+                          labelString: 'Number of Months'
+                      }
+                  }
+              ]
+          }}
+      });
       //Constant used to calculate price for the first selection
-      cons = Math.round(.015*({{money}}*{{size}}/{{seer}}));
+      cons = Math.round(.015*({{my_dict.money}}*{{my_dict.size}}/{{my_dict.seer}}));
       //Constant used to calculate price for the second selection
-      cons2 = Math.round(.015*({{money}}*{{size2}}/{{seer2}}));
+      cons2 = Math.round(.015*({{my_dict.money}}*{{my_dict.size2}}/{{my_dict.seer2}}));
       var price_chart = new Chart(prc, {
         type: 'line',
         data: {
             labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
             datasets: [{
-                label: "Price for {{name1}}",
+                label: "Price for {{my_dict.name1}}",
                 borderColor: 'rgb(255, 99, 132)',
                 data: [0, 1*cons, 2*cons, 3*cons, 4*cons,5*cons, 6*cons, 7*cons, 8*cons, 9*cons, 10*cons, 11*cons, 12*cons],
             }, {
-                label: "Price for {{name2}}",
+                label: "Price for {{my_dict.name2}}",
                 borderColor: 'rgb(16, 73, 165)',
                 data: [0, 1*cons2, 2*cons2, 3*cons2, 4*cons2,5*cons2, 6*cons2, 7*cons2, 8*cons2, 9*cons2, 10*cons2, 11*cons2, 12*cons2]
             }]
@@ -202,8 +185,8 @@
         }}
       });
       var price_diff = Math.abs(cons-cons2);
-      document.getElementById("energyDifference").innerText = "\n\nThe energy difference over one year between {{name1}} and {{name2}} is " + energy_diff + " kilowatts.\n\n";
-      document.getElementById("priceDifference").innerText = "The price difference over one year between the two options in {{state}} is $" + price_diff + ".";}
+      document.getElementById("energyDifference").innerText = "\n\nThe energy difference over one year between {{my_dict.name1}} and {{my_dict.name2}} is " + energy_diff + " kilowatts.\n\n";
+      document.getElementById("priceDifference").innerText = "The price difference over one year between the two options in {{my_dict.state}} is $" + price_diff + ".";}
 
         });
 
@@ -229,7 +212,6 @@
             mySidebar.style.display = "none";
             overlayBg.style.display = "none";
         }
-
       </script>
   </body>
 </html>
