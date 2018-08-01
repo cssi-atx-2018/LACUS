@@ -11,12 +11,17 @@ def avgthese(a, b):
     two = int(b)
     sum = one+two
     return sum/2
-
+        
 class HomePage(webapp2.RequestHandler):
     def get(self):
         home_temp = template_env.get_template('templates/home.html')
         self.response.write(home_temp.render())
 
+class AboutPage(webapp2.RequestHandler):
+    def get(self):
+        about_temp = template_env.get_template('templates/about_temp.html')
+        self.response.write(about_temp.render())        
+      
 class RegionPage(webapp2.RequestHandler):
     def get(self):
         region_template = template_env.get_template('templates/region.html')

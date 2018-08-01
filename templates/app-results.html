@@ -3,8 +3,48 @@
   <head>
     <title>Appliance Comparisons</title>
     <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../stylesheets/main.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
+    <!-- Navbar -->
+    <div class="w3-top">
+      <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+        <a href="/" class="w3-bar-item w3-button w3-hide-small w3-hover-white">AirCon-5</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About Us</a>
+        <a href="/region" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Compare Yourself</a>
+        <a href="/appliances" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Compare Products</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Find Solutions</a>
+
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+      <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+        <i class="fa fa-remove"></i>
+      </a>
+      <h4 class="w3-bar-item"><b>Menu</b></h4>
+      <a class="w3-bar-item w3-button w3-hover-black" href="https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwj0iJ2SssjcAhVqdt8KHd9GBpMQPAgD">Google</a>
+      <a class="w3-bar-item w3-button w3-hover-black" href="https://www.homedepot.com/b/Heating-Venting-Cooling-Air-Conditioners/N-5yc1vZc4me">Home Depot</a>
+      <a class="w3-bar-item w3-button w3-hover-black" href="https://www3.epa.gov/carbon-footprint-calculator/">Energy Emissions Calculator</a>
+      <a class="w3-bar-item w3-button w3-hover-black" href="https://www.cnet.com/how-to/rules-for-paying-less-on-ac-this-summer/">Helpful Resources</a>
+    </nav>
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+    <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+    <div class="w3-main" style="margin-left:250px">
+
+    <!-- Content -->
       <svg></svg>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
       <form method="post">
@@ -29,7 +69,34 @@
       <canvas id="priceChart"></canvas>
       <div id="energyDifference" style="font-family: 'Dosis'"></div>
       <div id="priceDifference" style="font-family: 'Dosis'"></div>
+
+      <!-- Pagination -->
+      <div class="w3-center w3-padding-32">
+        <div class="w3-bar">
+          <a class="w3-button w3-black" href="#">1</a>
+          <a class="w3-button w3-hover-black" href= 'region.html'>2</a>
+          <a class="w3-button w3-hover-black" href="app-results.html">3</a>
+
+          <a class="w3-button w3-hover-black" href="#">»</a>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer id="myFooter">
+        <div class="w3-container w3-theme-l5 w3-padding-32">
+          <h4>(c) 2018 AirCon-5</h4>
+          <h5>Google CSSI 2018</h5>
+          <h6>Ruchika Dongre, Sage Lee, and Austin Lozano</h6>
+        </div>
+
+        <div class="w3-container w3-theme-l1">
+          <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+        </div>
+      </footer>
+      <!-- END MAIN -->
+
       <script>
+
       console.log("this script has run");
       var bool = false;
       var enc = document.getElementById('energyChart').getContext('2d');
@@ -120,6 +187,31 @@
       var price_diff = Math.abs(cons-cons2);
       document.getElementById("energyDifference").innerText = "\n\nThe energy difference over one year between {{my_dict.name1}} and {{my_dict.name2}} is " + energy_diff + " kilowatts.\n\n";
       document.getElementById("priceDifference").innerText = "The price difference over one year between the two options in {{my_dict.state}} is $" + price_diff + ".";}
+
+        });
+
+        // Get the Sidebar
+        var mySidebar = document.getElementById("mySidebar");
+
+        // Get the DIV with overlay effect
+        var overlayBg = document.getElementById("myOverlay");
+
+        // Toggle between showing and hiding the sidebar, and add overlay effect
+        function w3_open() {
+            if (mySidebar.style.display === 'block') {
+                mySidebar.style.display = 'none';
+                overlayBg.style.display = "none";
+            } else {
+                mySidebar.style.display = 'block';
+                overlayBg.style.display = "block";
+            }
+        }
+
+        // Close the sidebar with the close button
+        function w3_close() {
+            mySidebar.style.display = "none";
+            overlayBg.style.display = "none";
+        }
       </script>
   </body>
 </html>
