@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AC BOIZ</title>
+    <title>AirCon-5</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../stylesheets/main.css" rel="stylesheet">
@@ -14,17 +14,16 @@
 
   <body>
     <!-- Navbar -->
-    <div class="w3-top">
-      <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <div class="w3-top" align= "center">
+      <div class="w3-container w3-pale-green w3-bar  w3-top w3-align w3-large">
         <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
         <a href="/" class="w3-bar-item w3-button w3-hide-small w3-hover-white">AirCon-5</a>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About Us</a>
-        <a href="/region" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Compare Yourself</a>
+        <a href="/about" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About Us</a>
+        <a href="/region" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Compare Your Setpoint</a>
         <a href="/appliances" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Compare Products</a>
         <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Find Solutions</a>
-
-      </div>
-    </div>
+       </div>
+     </div>
 
     <!-- Sidebar -->
     <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
@@ -42,12 +41,12 @@
     <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
     <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
-    <div class="w3-main" style="margin-left:250px">
+    <div class="w3-main" style="margin-left:200px">
 
     <!-- Content -->
     <div class="w3-row w3-padding-64">
       <div class="w3-twothird w3-container">
-        <h1>Is your household temperature in the norm?</h1>
+        <h1 class="w3-text-blue">Is your household temperature in the norm?</h1>
         <h3>Enter some quick information about your area and the temperature range to compare your preferred temperatures to those of your region and state.</h3>
 
         <form method='post'>
@@ -73,17 +72,6 @@
         <h3 id='stateavg'> {{ state }} </h3>
 
         <h2 id='compavg'> {{ diff }} </h2>
-      </div>
-    </div>
-
-    <!-- Pagination -->
-    <div class="w3-center w3-padding-32">
-      <div class="w3-bar">
-        <a class="w3-button w3-black" href="#">1</a>
-        <a class="w3-button w3-hover-black" href= 'region.html'>2</a>
-        <a class="w3-button w3-hover-black" href="app-results.html">3</a>
-
-        <a class="w3-button w3-hover-black" href="#">»</a>
       </div>
     </div>
 
