@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>Appliance Comparisons</title>
-    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../stylesheets/main.css" rel="stylesheet">
@@ -45,30 +44,36 @@
     <div class="w3-main" style="margin-left:250px">
 
     <!-- Content -->
-      <svg></svg>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-      <form method="post">
-          <select name="ac-type">
-              {% for key in dict: %}
-                  <option value="{{ key }}">{{ key }}</option>
-              {% endfor %}
-          </select>
-          <select name="ac-type-2">
-              {% for key in dict: %}
-                  <option value="{{ key }}">{{ key }}</option>
-              {% endfor %}
-          </select>
-          <select name="state">
-              {% for key in s_dict: %}
-                  <option value= {{ key }}>{{ key }}</option>
-              {% endfor %}
-          </select>
-          <input type="submit" value = "Go!">
-      </form>
-      <canvas id="energyChart"></canvas>
-      <canvas id="priceChart"></canvas>
-      <div id="energyDifference" style="font-family: 'Dosis'"></div>
-      <div id="priceDifference" style="font-family: 'Dosis'"></div>
+    <div class="w3-row w3-padding-64">
+      <div class="w3-twothird w3-container">
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>Enter your air conditioner, the air conditioner you'd like to compare to, and your state. We'll show you how much money or energy you could be saving (or losing!)
+          <form method="post">
+              Your AC: <select name="ac-type">
+                  {% for key in dict: %}
+                      <option value="{{ key }}">{{ key }}</option>
+                  {% endfor %}
+              </select>
+              <br>
+              Compare AC: <select name="ac-type-2">
+                  {% for key in dict: %}
+                      <option value="{{ key }}">{{ key }}</option>
+                  {% endfor %}
+              </select>
+              <br>
+              State: <select name="state">
+                  {% for key in s_dict: %}
+                      <option value= {{ key }}>{{ key }}</option>
+                  {% endfor %}
+              </select>
+              <br>
+              <input type="submit" value = "Go!">
+          </form>
+          <canvas id="energyChart"></canvas>
+          <canvas id="priceChart"></canvas>
+          <div id="energyDifference"></div>
+          <div id="priceDifference"></div>
+      </div>
+    </div>
 
       <!-- Pagination -->
       <div class="w3-center w3-padding-32">
