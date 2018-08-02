@@ -1,116 +1,205 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>AirCon-5</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../stylesheets/main.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
+<title>Air Con 5</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Times New Roman", sans-serif;}
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
+</style>
+<body>
 
-  <body>
-    <!-- Navbar -->
-    <div class="w3-top" align= "center">
-      <div class="w3-container w3-pale-green w3-bar  w3-top w3-align w3-large">
-        <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
-        <a href="/" class="w3-bar-item w3-button w3-hide-small w3-hover-white">AirCon-5</a>
-        <a href="/about" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About Us</a>
-        <a href="/region" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Compare Your Setpoint</a>
-        <a href="/appliances" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Compare Products</a>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Find Solutions</a>
+
+<!-- Navbar -->
+<div class="w3-top" align= "center">
+  <div class="w3-container w3-pale-green w3-bar  w3-top w3-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About Us</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Compare Yourself</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Compare Products</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Find Solutions</a>
+
+  </div>
+</div>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Menu</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" href="https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwj0iJ2SssjcAhVqdt8KHd9GBpMQPAgD">Google</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="https://www.homedepot.com/b/Heating-Venting-Cooling-Air-Conditioners/N-5yc1vZc4me">Home Depot</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="https://www3.epa.gov/carbon-footprint-calculator/">Energy Emissions Calculator</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="https://www.cnet.com/how-to/rules-for-paying-less-on-ac-this-summer/">Helpful Resources</a>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+
+
+
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-container" align ="center">
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="https://www.mahleairconditioning.com/blogmin/wp-content/uploads/2015/11/iStock_000051459420_Large.jpg" style="width:50%">
+          <div class="text">Aircon-5</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZwawye4NtQZi4akvja0LXleF6fjLbmVwpIU6RJvkQ229kN4FD" style="width:50%">
+          <div class="text">Caption Two</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="http://images.jdmagicbox.com/comp/def_content/refrigerator_repair_and_services/default-refrigerator-repair-and-services-2.jpg" style="width:50%">
+          <div class="text">Caption Three</div>
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
       </div>
+      <br>
+
+      <!-- The dots/circles -->
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
+      <h1 class="w3-text-blue " align ="center">Our Purpose</h1>
+      <p>In today’s society, the sheer number of appliances to be had in a single household is overwhelming. At times, it’s easy to forget to look for the cheapest and most energy-saving devices, and even if one remembers, it’s an arduous and time-consuming process.
+        On top of that, humanity’s energy consumption can be extreme and leave heavy impacts on the planet. The average household consumes about 11 thousand kilowatt-hours of energy annually. That translates to nearly up to $1500 spent on electricity alone, and it takes 10 acres of US forests to sequester that much carbon from the atmosphere. And this isn’t even accounting for the consumption of an average commercial cooling system.
+        We plan on resolving this problem of lack of information about energy usage for household appliances -- specifically, air conditioning and central cooling systems --  by creating a web application that allows users to check consumption of devices in order to save time, money, and energy
+        .</p>
     </div>
+  </div>
+    <img   class = "" width = 500px height= 200px src ="https://www.constellation.com/energy-101/best-thermostat-types-and-settings/_jcr_content/secondaryPar/banner_section_363108280/par/banner_section/par1/image.img.png/1518451779653.png">
+    <div class="w3-third w3-container">
+  </div>
+  <div class="w3-row w3-padding-64">
+    <div class="w3-container" align ="center">
+      <h1 class="w3-text-blue " align ="center">Impact</h1>
+      <p>One of our main features includes the ability for users to compare their average temperature settings to that of their relative region and state. The app will produce comparison data in response to these entries, showing users how their temperature range stands. It will also provide a hyperlink to a separate solutions page, which we’ll get into soon.
+        Another one of our primary features is the capability for users to perform comparisons between various air conditioning brands in order to find out which would best serve their interests, whether that be saving money or conserving energy. As the great Walmart would say, with this information, users will be able to figure out how to save money and live better!
+        Last but not least, we will be providing a specialized solution based on the users input in our database. These solutions will show exactly how the user can be involved and become a safe energized consumer on their own. This application can save lots of resources for thousands of people and we are eager to hear your interests in our idea.
+        .</p>
+    </div>
+    <img   class = "" width = 500px height= 200px src ="https://www.constellation.com/energy-101/best-thermostat-types-and-settings/_jcr_content/secondaryPar/banner_section/par/image.img.png/1517428550539.png">
+    <div class="w3-third w3-container">
+    </div>
+  </div>
+  <section class="w3-container w3-pale-green">
+    <h2 align = 'center' class = "w3-text-teal"> The Best Thermostat Types and Settings</h2>
+      <p align = "center">According to ENERGY STAR, a homeowner can save as much as 10% a year in heating and cooling costs by turning back thermostats 7 - 10
+        <br>degrees Fahrenheit for eight hours a day. Though you can manually set your thermostat daily, automated thermostats that are programmable or “smart” help you achieve greater
+        <br>energy savings, especially if you’re away from home.</p>
+  </section>
 
-    <!-- Sidebar -->
-    <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
-      <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
-        <i class="fa fa-remove"></i>
-      </a>
-      <h4 class="w3-bar-item"><b>Menu</b></h4>
-      <a class="w3-bar-item w3-button w3-hover-black" href="https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwj0iJ2SssjcAhVqdt8KHd9GBpMQPAgD">Google</a>
-      <a class="w3-bar-item w3-button w3-hover-black" href="https://www.homedepot.com/b/Heating-Venting-Cooling-Air-Conditioners/N-5yc1vZc4me">Home Depot</a>
-      <a class="w3-bar-item w3-button w3-hover-black" href="https://www3.epa.gov/carbon-footprint-calculator/">Energy Emissions Calculator</a>
-      <a class="w3-bar-item w3-button w3-hover-black" href="https://www.cnet.com/how-to/rules-for-paying-less-on-ac-this-summer/">Helpful Resources</a>
-    </nav>
 
-    <!-- Overlay effect when opening sidebar on small screens -->
-    <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
-    <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
-    <div class="w3-main" style="margin-left:200px">
 
-      <div class="w3-row w3-padding-64">
-        <div class="w3-container" align="center">
-          <h1 class="w3-text-blue" align="center">Our Purpose</h1>
-          <p>In today’s society, the sheer number of appliances to be had in a single household is overwhelming. At times, it’s easy to forget to look for the cheapest and most energy-saving devices, and even if one remembers, it’s an arduous and time-consuming process.
-            On top of that, humanity’s energy consumption can be extreme and leave heavy impacts on the planet. The average household consumes about 11 thousand kilowatt-hours of energy annually. That translates to nearly up to $1500 spent on electricity alone, and it takes 10 acres of US forests to sequester that much carbon from the atmosphere. And this isn’t even accounting for the consumption of an average commercial cooling system.
-            We plan on resolving this problem of lack of information about energy usage for household appliances -- specifically, air conditioning and central cooling systems --  by creating a web application that allows users to check consumption of devices in order to save time, money, and energy.
-            </p>
-        </div>
-      </div>
-        <img width=500px height=200px src="https://www.constellation.com/energy-101/best-thermostat-types-and-settings/_jcr_content/secondaryPar/banner_section_363108280/par/banner_section/par1/image.img.png/1518451779653.png">
-        <div class="w3-third w3-container">
-      </div>
-      <div class="w3-row w3-padding-64">
-        <div class="w3-container" align="center">
-          <h1 class="w3-text-blue" align="center">Impact</h1>
-          <p>Air conditioners use about 6% of all the electricity produced in the United States, at an annual cost of about $29 billion to homeowners. As a result, roughly 117 million metric tons of carbon dioxide are released into the air each year. These are insanely large numbers that undoubtedly contribute to warming across the globe. However, we believe that even one household's efforts to lessen their carbon footprint and energy usage can result in positive changes for the world. Feel free to utilize our website and its features to calculate your personal energy usage and read up on quick and easy solutions to make Earth a slightly healthier planet.
-          </p>
-        </div>
-        <img   class = "" width = 500px height= 200px src ="https://www.constellation.com/energy-101/best-thermostat-types-and-settings/_jcr_content/secondaryPar/banner_section/par/image.img.png/1517428550539.png">
-        <div class="w3-third w3-container">
-        </div>
-      </div>
-      <section class="w3-container w3-pale-green">
-        <h2 align = 'center' class = "w3-text-teal"> The Best Thermostat Types and Settings</h2>
-          <p align = "center">According to ENERGY STAR, a homeowner can save as much as 10% a year in heating and cooling costs by turning back thermostats 7 - 10
-            <br>degrees Fahrenheit for eight hours a day. Though you can manually set your thermostat daily, automated thermostats that are programmable or “smart” help you achieve greater
-            <br>energy savings, especially if you’re away from home.</p>
-      </section>
 
-      <!-- Footer -->
-      <footer id="myFooter">
-        <div class="w3-container w3-theme-l5 w3-padding-32">
-          <h4>(c) 2018 AirCon-5</h4>
-          <h5>Google CSSI 2018</h5>
-          <h6>Ruchika Dongre, Sage Lee, and Austin Lozano</h6>
-        </div>
 
-        <div class="w3-container w3-theme-l1">
-          <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-        </div>
-      </footer>
-    <!-- END MAIN -->
+
+  <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a class="w3-button w3-black" href="home.html">1</a>
+      <a class="w3-button w3-hover-black" href= 'region.html'>2</a>
+      <a class="w3-button w3-hover-black" href="app-results.html">3</a>
+      <a class="w3-button w3-hover-black" href="about.html">4</a>
+
+
+      <a class="w3-button w3-hover-black" href="#">»</a>
+    </div>
   </div>
 
-    <script>
-    // Get the Sidebar
-    var mySidebar = document.getElementById("mySidebar");
+  <footer id="myFooter">
+    <div class="w3-container w3-theme-l5 w3-padding-32">
+      <h4>Footer</h4>
+    </div>
 
-    // Get the DIV with overlay effect
-    var overlayBg = document.getElementById("myOverlay");
+    <div class="w3-container w3-theme-l1">
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    </div>
+  </footer>
 
-    // Toggle between showing and hiding the sidebar, and add overlay effect
-    function w3_open() {
-        if (mySidebar.style.display === 'block') {
-            mySidebar.style.display = 'none';
-            overlayBg.style.display = "none";
-        } else {
-            mySidebar.style.display = 'block';
-            overlayBg.style.display = "block";
-        }
-    }
+<!-- END MAIN -->
+</div>
 
-    // Close the sidebar with the close button
-    function w3_close() {
-        mySidebar.style.display = "none";
+<script>
+
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+    if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
         overlayBg.style.display = "none";
+    } else {
+        mySidebar.style.display = 'block';
+        overlayBg.style.display = "block";
     }
-    </script>
+    }var slideIndex = 1;
+    showSlides(slideIndex);
 
-  </body>
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+    }
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+    overlayBg.style.display = "none";
+}
+</script>
+
+</body>
 </html>
