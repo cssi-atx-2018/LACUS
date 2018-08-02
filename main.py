@@ -127,8 +127,14 @@ class SolutionsPage(webapp2.RequestHandler):
         sol_temp = template_env.get_template('templates/solutions.html')
         self.response.write(sol_temp.render())
 
+class MapPage(webapp2.RequestHandler):
+    def get(self):
+        map_temp = template_env.get_template('templates/map.html')
+        self.response.write(map_temp.render())
+
 app = webapp2.WSGIApplication([
     ('/', HomePage),
+    ('/map', MapPage),
     ('/about', AboutPage),
     ('/region', RegionPage),
     ('/appliances', AppliancePage),
