@@ -104,6 +104,7 @@ class AppliancePage(webapp2.RequestHandler):
         ac=str(self.request.get('ac-type'))
         ac2=str(self.request.get('ac-type-2'))
         state = str(self.request.get('state'))
+        state2 = str(self.request.get('state-2'))
         ac_arr=[]
         states_arr=[]
         for pair in sorted(air_con.ac_dict.items()):
@@ -116,7 +117,8 @@ class AppliancePage(webapp2.RequestHandler):
         seer2 = air_con.ac_dict[ac2][0]
         size2 = air_con.ac_dict[ac2][1]
         money = air_con.states_dict[state]
-        my_dict = {'dict': ac_arr, 's_dict': states_arr, 'my_dict':{'name1': ac, 'name2': ac2, 'state': state, 'seer': seer, 'size': size, 'money': money, 'seer2': seer2, 'size2': size2}}
+        money2 = air_con.states_dict[state2]
+        my_dict = {'dict': ac_arr, 's_dict': states_arr, 'my_dict':{'name1': ac, 'name2': ac2, 'state': state, 'seer': seer, 'size': size, 'money': money, 'money2': money2, 'seer2': seer2, 'size2': size2, 'state2': state2}}
         end_template = template_env.get_template('templates/app-results.html')
         self.response.write(end_template.render(my_dict))
 

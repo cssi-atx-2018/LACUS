@@ -60,7 +60,12 @@
               </select>
               <select name="state">
                   {% for key in s_dict: %}
-                      <option value = {{ key }}>{{ key }}</option>
+                      <option value = "{{ key }}">{{ key }}</option>
+                  {% endfor %}
+              </select>
+              <select name="state-2">
+                  {% for key in s_dict: %}
+                      <option value = "{{ key }}">{{ key }}</option>
                   {% endfor %}
               </select>
               <br>
@@ -142,17 +147,17 @@
       //Constant used to calculate price for the first selection
       cons = Math.round(.015*({{my_dict.money}}*{{my_dict.size}}/{{my_dict.seer}}));
       //Constant used to calculate price for the second selection
-      cons2 = Math.round(.015*({{my_dict.money}}*{{my_dict.size2}}/{{my_dict.seer2}}));
+      cons2 = Math.round(.015*({{my_dict.money2}}*{{my_dict.size2}}/{{my_dict.seer2}}));
       var price_chart = new Chart(prc, {
         type: 'line',
         data: {
             labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
             datasets: [{
-                label: "Price for {{my_dict.name1}}",
+                label: "Price for {{my_dict.name1}} in {{my_dict.state}}",
                 borderColor: 'rgb(255, 99, 132)',
                 data: [0, 1*cons, 2*cons, 3*cons, 4*cons,5*cons, 6*cons, 7*cons, 8*cons, 9*cons, 10*cons, 11*cons, 12*cons],
             }, {
-                label: "Price for {{my_dict.name2}}",
+                label: "Price for {{my_dict.name2}} in {{my_dict.state2}}",
                 borderColor: 'rgb(16, 73, 165)',
                 data: [0, 1*cons2, 2*cons2, 3*cons2, 4*cons2,5*cons2, 6*cons2, 7*cons2, 8*cons2, 9*cons2, 10*cons2, 11*cons2, 12*cons2]
             }]
@@ -178,7 +183,7 @@
       });
       var price_diff = Math.abs(cons-cons2);
       document.getElementById("energyDifference").innerText = "\n\nThe energy difference over one year between {{my_dict.name1}} and {{my_dict.name2}} is " + energy_diff + " kilowatts.\n\n";
-      document.getElementById("priceDifference").innerText = "The price difference over one year between the two options in {{my_dict.state}} is $" + price_diff + ".";}
+      document.getElementById("priceDifference").innerText = "The price difference over one year between the first option in {{my_dict.state}} and the second option in {{my_dict.state2 }} is $" + price_diff + ".";}
 
 
         // Get the Sidebar
