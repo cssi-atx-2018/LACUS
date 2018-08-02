@@ -21,7 +21,7 @@
         <a href="/about" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About Us</a>
         <a href="/region" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Compare Your Setpoint</a>
         <a href="/appliances" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Compare Products</a>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Find Solutions</a>
+        <a href="/solutions" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Find Solutions</a>
        </div>
      </div>
 
@@ -30,11 +30,11 @@
       <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
         <i class="fa fa-remove"></i>
       </a>
-      <h4 class="w3-bar-item"><b>Menu</b></h4>
+      <h4 class="w3-bar-item"><b>Helpful Resources</b></h4>
       <a class="w3-bar-item w3-button w3-hover-black" href="https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwj0iJ2SssjcAhVqdt8KHd9GBpMQPAgD">Google</a>
       <a class="w3-bar-item w3-button w3-hover-black" href="https://www.homedepot.com/b/Heating-Venting-Cooling-Air-Conditioners/N-5yc1vZc4me">Home Depot</a>
       <a class="w3-bar-item w3-button w3-hover-black" href="https://www3.epa.gov/carbon-footprint-calculator/">Energy Emissions Calculator</a>
-      <a class="w3-bar-item w3-button w3-hover-black" href="https://www.cnet.com/how-to/rules-for-paying-less-on-ac-this-summer/">Helpful Resources</a>
+      <a class="w3-bar-item w3-button w3-hover-black" href="https://www.cnet.com/how-to/rules-for-paying-less-on-ac-this-summer/">FIX</a>
     </nav>
 
     <!-- Overlay effect when opening sidebar on small screens -->
@@ -45,19 +45,20 @@
 
     <!-- Content -->
     <div class="w3-row w3-padding-64">
-      <div class="w3-twothird w3-container">
+      <div class="w3-container">
         <h1 class="w3-text-blue">Is your household temperature in the norm?</h1>
         <h3>Enter some quick information about your area and the temperature range to compare your preferred temperatures to those of your region and state.</h3>
 
         <form method='post'>
-          Region:
-          <select id='reg'>
-            <option>Southwest</option>
+          Region: <select name="region" onChange="jsFunction()" id="selectRegion">
+            <option value="" selected="selected">Select Region</option>
+            <option value="NorthEast">NorthEast</option>
+            <option value="MidWest">MidWest</option>
+            <option value="South">South</option>
           </select>
           <br>
-          State:
-          <select id='st'>
-            <option>Texas</option>
+          State: <select name ='state' id="selectState">
+            <option value="">Select State</option>
           </select>
           <br>
           Minimum temperature: <input id='min' type='number' name='mintemp'>
@@ -111,6 +112,61 @@
       function w3_close() {
           mySidebar.style.display = "none";
           overlayBg.style.display = "none";
+      }
+
+      function jsFunction(){
+        var region = document.getElementById("selectRegion");
+        var myselect = region.options[region.selectedIndex].value;
+        var state = document.getElementById('selectState');
+        for (i = 0; i < state.options.length; i++) {
+          state.options[i] = null;
+        }
+        if(myselect==="NorthEast"){
+          var opt1 = document.createElement('option');
+          var opt2 = document.createElement('option');
+          var opt3 = document.createElement('option');
+          opt1.value="Maine";
+          opt1.innerHTML = 'Maine';
+          opt2.value="New Hampshire";
+          opt2.innerHTML = 'New Hampshire';
+          opt3.value="Vermont";
+          opt3.innerHTML = 'Vermont';
+          state.appendChild(opt1);
+          state.appendChild(opt2);
+          state.appendChild(opt3);
+        }
+        else if(myselect==="MidWest"){
+          var opt1 = document.createElement('option');
+          var opt2 = document.createElement('option');
+          opt1.value="Iowa";
+          opt1.innerHTML = 'Iowa';
+          opt2.value="Nebraska";
+          opt2.innerHTML = 'Nebraska';
+          state.appendChild(opt1);
+          state.appendChild(opt2);
+        }
+        else{
+          var opt1 = document.createElement('option');
+          var opt2 = document.createElement('option');
+          var opt3 = document.createElement('option');
+          var opt4 = document.createElement('option');
+          var opt5 = document.createElement('option');
+          opt1.value="Delaware";
+          opt1.innerHTML = 'Delaware';
+          opt2.value="Mississippi";
+          opt2.innerHTML = 'Mississippi';
+          opt3.value="Louisiana";
+          opt3.innerHTML = 'Louisiana';
+          opt4.value="Oklahoma";
+          opt4.innerHTML = 'Oklahoma';
+          opt5.value="Texas";
+          opt5.innerHTML = 'Texas';
+          state.appendChild(opt1);
+          state.appendChild(opt2);
+          state.appendChild(opt3);
+          state.appendChild(opt4);
+          state.appendChild(opt5);
+        }
       }
     </script>
   </body>

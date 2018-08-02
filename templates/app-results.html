@@ -20,7 +20,7 @@
         <a href="/about" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About Us</a>
         <a href="/region" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Compare Your Setpoint</a>
         <a href="/appliances" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Compare Products</a>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Find Solutions</a>
+        <a href="/solutions" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Find Solutions</a>
        </div>
      </div>
 
@@ -29,11 +29,11 @@
       <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
         <i class="fa fa-remove"></i>
       </a>
-      <h4 class="w3-bar-item"><b>Menu</b></h4>
+      <h4 class="w3-bar-item"><b>Helpful Resources</b></h4>
       <a class="w3-bar-item w3-button w3-hover-black" href="https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwj0iJ2SssjcAhVqdt8KHd9GBpMQPAgD">Google</a>
       <a class="w3-bar-item w3-button w3-hover-black" href="https://www.homedepot.com/b/Heating-Venting-Cooling-Air-Conditioners/N-5yc1vZc4me">Home Depot</a>
       <a class="w3-bar-item w3-button w3-hover-black" href="https://www3.epa.gov/carbon-footprint-calculator/">Energy Emissions Calculator</a>
-      <a class="w3-bar-item w3-button w3-hover-black" href="https://www.cnet.com/how-to/rules-for-paying-less-on-ac-this-summer/">Helpful Resources</a>
+      <a class="w3-bar-item w3-button w3-hover-black" href="https://www.cnet.com/how-to/rules-for-paying-less-on-ac-this-summer/">FIX</a>
     </nav>
 
     <!-- Overlay effect when opening sidebar on small screens -->
@@ -44,7 +44,7 @@
 
     <!-- Content -->
     <div class="w3-row w3-padding-64">
-      <div class="w3-twothird w3-container">
+      <div class="w3-container">
           <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
           <h1 class="w3-text-blue">Enter your air conditioner, the air conditioner you'd like to compare to, and your state. We'll show you how much money or energy you could be saving (or losing!)</h1>
           <form method="post">
@@ -53,13 +53,11 @@
                       <option value = "{{ key }}">{{ key }}</option>
                   {% endfor %}
               </select>
-              <br>
               <select name="ac-type-2">
                   {% for key in dict: %}
                       <option value = "{{ key }}">{{ key }}</option>
                   {% endfor %}
               </select>
-              <br>
               <select name="state">
                   {% for key in s_dict: %}
                       <option value = "{{ key }}">{{ key }}</option>
