@@ -46,28 +46,28 @@
     <div class="w3-row w3-padding-64">
       <div class="w3-container">
           <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-          <h1 class="w3-text-blue">Enter your air conditioner, the air conditioner you'd like to compare to, and your state. We'll show you how much money or energy you could be saving (or losing!)</h1>
+          <h1 class="w3-text-blue">Are you getting the best deal on your AC?</h1>
           <form method="post">
-              <select name="ac-type">
+              Enter your AC type: <select name="ac-type">
                   {% for key in dict: %}
                       <option value = "{{ key }}">{{ key }}</option>
                   {% endfor %}
-              </select>
-              <select name="ac-type-2">
+              </select><br/>
+              Enter the AC you would like to compare to (select the same AC if you would like to compare just states): <select name="ac-type-2">
                   {% for key in dict: %}
                       <option value = "{{ key }}">{{ key }}</option>
                   {% endfor %}
-              </select>
-              <select name="state">
+              </select><br/>
+              Enter your state: <select name="state">
                   {% for key in s_dict: %}
                       <option value = "{{ key }}">{{ key }}</option>
                   {% endfor %}
-              </select>
-              <select name="state-2">
+              </select><br/>
+              Enter the state you would like to compare to (select the same state if you would like to compare just ACs): <select name="state-2">
                   {% for key in s_dict: %}
                       <option value = "{{ key }}">{{ key }}</option>
                   {% endfor %}
-              </select>
+              </select><br/>
               <br>
               <input type="submit" value = "Go!">
           </form>
