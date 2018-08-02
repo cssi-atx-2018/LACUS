@@ -11,10 +11,17 @@ handlers:
   static_dir: stylesheets
 - url: /scripts
   static_dir: scripts
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+- url: /favicon\.png
+  static_files: favicon.png
+  upload: favicon\.png
 - url: /images
   static_dir: images
 - url: /.*
   script: main.app
+
 
 libraries:
 - name: jinja2
