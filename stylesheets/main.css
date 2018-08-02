@@ -33,6 +33,14 @@ h1{
   height: inherit;
 }
 
+.subcat option{
+    display:none;
+}
+
+.subcat option.label{
+    display:block;
+}
+
 #myFooter{
   text-align: center;
 }
